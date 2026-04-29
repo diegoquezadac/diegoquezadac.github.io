@@ -117,6 +117,9 @@ def parse_post(path: Path):
             k, v = line.split(":", 1)
             meta[k.strip()] = v.strip()
 
+    if meta.get("draft", "").lower() == "true":
+        return None
+
     return {
         "title": meta["title"],
         "date": meta["date"],          # "YYYY-MM-DD"
@@ -129,7 +132,7 @@ def main():
     cfg = json.loads((ROOT / "config.json").read_text())
 
     posts = sorted(
-        [parse_post(p) for p in POSTS_SRC.glob("*.md")],
+        [p for p in (parse_post(f) for f in POSTS_SRC.glob("*.md")) if p],
         key=lambda p: p["date"],
         reverse=True,
     )
