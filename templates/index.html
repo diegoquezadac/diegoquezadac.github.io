@@ -1,30 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="{language}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>diego</title>
-  <meta name="description" content="notes for my future self.">
+  <title>{title}</title>
+  <meta name="description" content="{description}">
   <link rel="stylesheet" href="style.css">
-  <link rel="alternate" type="application/rss+xml" title="diego" href="feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="{title}" href="feed.xml">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text x=%222%22 y=%2213%22 font-family=%22monospace%22 font-size=%2214%22 font-weight=%22bold%22 fill=%22%230000ee%22>d</text></svg>">
 </head>
 <body>
 
-  <h1>diego</h1>
-  <p class="tagline">engineer.</p>
+  <h1>{title}</h1>
+  <p class="tagline">{tagline}</p>
 
-  <p>notes for my future self.</p>
+  <p>{description}</p>
 
   <h2>writing <a class="feed" href="feed.xml">[rss]</a></h2>
   <ul>
-    <li><span class="date">2026-04-28</span><a href="posts/2026-04-28-hello.html">hello, world</a></li>
+{post_list}
   </ul>
 
   <h2>elsewhere</h2>
   <ul>
-    <li><a href="https://github.com/diegoquezadac">github</a></li>
-    <li><a href="mailto:heydiegoq@gmail.com">email</a></li>
+    <li><a href="{github}">github</a></li>
+    <li><a href="mailto:{email}">email</a></li>
   </ul>
 
 </body>

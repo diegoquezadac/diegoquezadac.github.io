@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="{language}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>hello, world — diego</title>
-  <meta name="description" content="first post.">
+  <title>{post_title} — {site_title}</title>
+  <meta name="description" content="{post_summary}">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text x=%222%22 y=%2213%22 font-family=%22monospace%22 font-size=%2214%22 font-weight=%22bold%22 fill=%22%230000ee%22>d</text></svg>">
 </head>
@@ -12,17 +12,13 @@
 
   <div class="nav"><a href="../">← home</a></div>
 
-  <h1>hello, world</h1>
-  <div class="meta">2026-04-28</div>
+  <h1>{post_title}</h1>
+  <div class="meta">{post_date}</div>
 
-  <p>a friend of mine once said to me:</p>
-  <blockquote>you should start posting blog posts and shi yknow!!</blockquote>
-  <p>so i did.</p>
-  <p>i don't know what to write about just yet. i will figure it out soon.</p>
-  <p>today i just wanted to get started.</p>
+  {post_body}
 
   <footer>
-    <a href="../">← home</a> · <a href="mailto:heydiegoq@gmail.com">email me</a>
+    <a href="../">← home</a> · <a href="mailto:{email}">email me</a>
   </footer>
 
 </body>
