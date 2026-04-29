@@ -65,6 +65,22 @@ def md_to_html(md: str) -> str:
             out.append(f"<blockquote>{inline(' '.join(buf))}</blockquote>")
             continue
 
+        # list (ul or ol; mixing markers ends the list)
+        m = re.match(r"^([-*]|\d+\.)\s+(.*)$", line)
+        if m:
+            flush_para()
+            ordered = m.group(1)[0].isdigit()
+            tag = "ol" if ordered else "ul"
+            li = []
+            while i < len(lines):
+                m2 = re.match(r"^([-*]|\d+\.)\s+(.*)$", lines[i])
+                if not m2 or m2.group(1)[0].isdigit() != ordered:
+                    break
+                li.append(f"<li>{inline(m2.group(2))}</li>")
+                i += 1
+            out.append(f"<{tag}>\n  " + "\n  ".join(li) + f"\n</{tag}>")
+            continue
+
         # blank line ends a paragraph
         if line.strip() == "":
             flush_para()
