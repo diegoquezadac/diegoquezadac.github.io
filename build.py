@@ -2,7 +2,7 @@
 build.py — turn /src/*.md + /templates/* + config.json into a static site.
 
 usage: python3 build.py
-output: index.html, feed.xml, posts/*.html in the repo root
+output: index.html, feed.xml, sitemap.xml, posts/*.html in the repo root
 """
 
 import re
@@ -197,7 +197,19 @@ def main():
 """
     (OUT / "feed.xml").write_text(feed)
 
-    print(f"built {len(posts)} posts → index.html, feed.xml, posts/*.html")
+    # sitemap
+    urls = [f"  <url><loc>{cfg['url']}/</loc></url>"]
+    for p in posts:
+        url = f'{cfg["url"]}/posts/{p["slug"]}.html'
+        urls.append(f"  <url><loc>{url}</loc><lastmod>{p['date']}</lastmod></url>")
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{chr(10).join(urls)}
+</urlset>
+"""
+    (OUT / "sitemap.xml").write_text(sitemap)
+
+    print(f"built {len(posts)} posts → index.html, feed.xml, sitemap.xml, posts/*.html")
 
 if __name__ == "__main__":
     main()
