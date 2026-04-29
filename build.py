@@ -156,27 +156,26 @@ def main():
         pub = datetime.strptime(p["date"], "%Y-%m-%d").replace(tzinfo=timezone.utc)
         pub_822 = pub.strftime("%a, %d %b %Y %H:%M:%S +0000")
         url = f'{cfg["url"]}/posts/{p["slug"]}.html'
-        items.append(f"""    <item>
-      <title>{p["title"]}</title>
-      <link>{url}</link>
-      <guid>{url}</guid>
-      <pubDate>{pub_822}</pubDate>
-      <description>{p["summary"]}</description>
-    </item>""")
+        items.append(f"""  <item>
+    <title>{p["title"]}</title>
+    <link>{url}</link>
+    <guid>{url}</guid>
+    <pubDate>{pub_822}</pubDate>
+    <description>{p["summary"]}</description>
+  </item>""")
 
-    feed = f"""
-        <?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-        <channel>
-            <title>{cfg["title"]}</title>
-            <link>{cfg["url"]}/</link>
-            <description>{cfg["description"]}</description>
-            <language>{cfg["language"]}</language>
-            <atom:link href="{cfg["url"]}/feed.xml" rel="self" type="application/rss+xml" />
-        {chr(10).join(items)}
-        </channel>
-        </rss>
-        """
+    feed = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{cfg["title"]}</title>
+  <link>{cfg["url"]}/</link>
+  <description>{cfg["description"]}</description>
+  <language>{cfg["language"]}</language>
+  <atom:link href="{cfg["url"]}/feed.xml" rel="self" type="application/rss+xml" />
+{chr(10).join(items)}
+</channel>
+</rss>
+"""
     (OUT / "feed.xml").write_text(feed)
 
     print(f"built {len(posts)} posts → index.html, feed.xml, posts/*.html")

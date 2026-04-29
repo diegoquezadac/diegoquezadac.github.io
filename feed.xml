@@ -1,19 +1,17 @@
-
-        <?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-        <channel>
-            <title>diego</title>
-            <link>https://diegoquezadac.github.io/</link>
-            <description>notes for my future self.</description>
-            <language>en</language>
-            <atom:link href="https://diegoquezadac.github.io/feed.xml" rel="self" type="application/rss+xml" />
-            <item>
-      <title>hello, world</title>
-      <link>https://diegoquezadac.github.io/posts/2026-04-28-hello.html</link>
-      <guid>https://diegoquezadac.github.io/posts/2026-04-28-hello.html</guid>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
-      <description>first post.</description>
-    </item>
-        </channel>
-        </rss>
-        
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>diego</title>
+  <link>https://diegoquezadac.github.io/</link>
+  <description>notes for my future self.</description>
+  <language>en</language>
+  <atom:link href="https://diegoquezadac.github.io/feed.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>hello, world</title>
+    <link>https://diegoquezadac.github.io/posts/2026-04-28-hello.html</link>
+    <guid>https://diegoquezadac.github.io/posts/2026-04-28-hello.html</guid>
+    <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+    <description>first post.</description>
+  </item>
+</channel>
+</rss>
